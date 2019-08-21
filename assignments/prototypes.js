@@ -69,6 +69,23 @@ Humanoid.prototype.greet = function(){
   return `${this.name} offers a greeting in ${this.language}.`
 }
 
+function Hero(attributes){
+  Humanoid.call(this, attributes),
+  falconPunch = function(){
+    return this.healthPoints - 2;
+  }
+};
+
+Hero.prototype = Object.create(Humanoid.prototype);
+
+function Villain(attributes){
+  Humanoid.call(this, attributes)
+
+}
+
+Villain.prototype = Object.create(Humanoid.prototype);
+
+
 
 
 /*
@@ -140,7 +157,6 @@ Humanoid.prototype.greet = function(){
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-
 
   // Stretch task: 
   // * Create Villain and Hero constructor functions that inherit from the Humanoid constructor function.  
